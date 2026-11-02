@@ -1,0 +1,64 @@
+{
+  "name": "quode-palette-ico",
+  "productName": "Quode Palette ICO",
+  "version": "1.1.0",
+  "description": "Convert images to multi-resolution ICO files and extract ICO images as PNGs. Works offline.",
+  "main": "src/main.js",
+  "author": "Quode Palette",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win",
+    "build:dir": "electron-builder --win --dir"
+  },
+  "devDependencies": {
+    "electron": "^31.3.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.quodepalette.ico",
+    "productName": "Quode Palette ICO",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "build/icon.ico",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "publisherName": [
+        "Quode Palette"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Quode Palette ICO",
+      "differentialPackage": false
+    },
+    "portable": {
+      "artifactName": "QuodePaletteICO-portable.exe"
+    },
+    "copyright": "Copyright © Quode Palette"
+  }
+}
